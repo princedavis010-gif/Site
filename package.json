@@ -1,0 +1,12 @@
+{
+  "name": "lucky9bet",
+  "version": "1.0.0",
+  "description": "Lucky9Bet demo sports betting and casino web app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
