@@ -254,3 +254,7 @@ app.post("/api/bet", requireLogin, (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+// At the absolute bottom of server.js
+module.exports = app; 
+
