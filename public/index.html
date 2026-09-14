@@ -855,7 +855,20 @@ async function loadAccount() {
   const data =
     await response.json();
 
-  if (!data.success) return;
+  if (!data.success) {
+    localStorage.removeItem("lucky9bet_token");
+    token = null;
+    container.innerHTML = `
+      <div class="card">
+        <p>Session expired or server restarted. Please log in again.</p>
+        <br>
+        <button class="gold" onclick="showSection('auth')">
+          Login / Register
+        </button>
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = `
 
@@ -876,21 +889,6 @@ async function loadAccount() {
 
   `;
 }
-
-
-function logout() {
-
-  localStorage.removeItem(
-    "lucky9bet_token"
-  );
-
-  token = null;
-
-  alert("Logged out.");
-
-  showSection("home");
-}
-
 
 /* =========================
    START
